@@ -25,7 +25,7 @@ def add_items(request):
     if Item.objects.filter(**request.data).exists():
         raise serializers.ValidationError('This data already exists')
     
-    if Item.is_valid():
+    if item.is_valid():
         item.save()
         return Response(item.data)
     else:
