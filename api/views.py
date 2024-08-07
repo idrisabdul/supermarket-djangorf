@@ -30,3 +30,18 @@ def add_items(request):
         return Response(item.data)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
+    
+
+@api_view(['GET'])
+def view_items(request):
+
+    if request.query_params:
+        items = Item.objects.filter(**request.query_params.dict())
+    else:
+        items = Item.objects.all()
+
+    if items: 
+        serializers = ItemSerializer(items, many=True)
+        return Response(serializers.data)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
