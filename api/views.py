@@ -1,4 +1,4 @@
-from django.shortcuts import api_view
+from django.decorators import api_view
 from rest_framework.response import Response
 from .models import Item
 from .serializers import ItemSerializer
