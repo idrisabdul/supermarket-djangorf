@@ -1,4 +1,4 @@
-from django.url import path
+from django.urls import path
 from .views import MovieListCreateView, MovieDetailView, AllMoviesListView, MovieUpdateView, MovieDeleteView
 
 urlpatterns = [
